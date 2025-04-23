@@ -6,30 +6,107 @@ export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <Box sx={{ pt: { xs: 22, sm: 28 }, textAlign: 'center', color: '#fff' }}>
+    <Box
+      sx={{
+        pt: { xs: 20, md: 26 },
+        pb: 8,
+        textAlign: 'center',
+        color: '#fff',
+      }}
+    >
+      {/* FOTO / MEMOJI */}
       <Avatar
-        src="/avatar.png"          /* coloque sua imagem em public/ */
-        sx={{ width: 128, height: 128, mx: 'auto', mb: 3 }}
+        src="/avatar.jpeg"          /* coloque sua imagem em public/ */
+        alt={t('hero.name')}
+        sx={{
+          width: { xs: 120, md: 140 },
+          height: { xs: 120, md: 140 },
+          mx: 'auto',
+          mb: 4,
+          boxShadow: 3,
+        }}
       />
 
-      <Typography variant="h1">Matheus Sena!</Typography>
-
-      <Typography variant="h6" sx={{ mt: 1, maxWidth: 600, mx: 'auto' }}>
-        {t('hero.headline')} <br />
-        <span style={{ color: '#5e7bff' }}>{t('hero.headline2')}</span>
+      {/* NOME */}
+      <Typography
+        variant="h1"
+        sx={{
+          fontSize: { xs: '2.8rem', md: '4rem' },
+          fontWeight: 800,
+          letterSpacing: -1,
+          mb: 2,
+          fontFamily: 'SF Pro Display, Poppins, sans-serif',
+        }}
+      >
+        {t('hero.name')}
       </Typography>
 
+      {/* HEADLINE COM GRADIENTE COLORIDO */}
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: 600,
+          fontSize: { xs: '1.1rem', md: '1.5rem' },
+          mb: 6,
+          background: `linear-gradient(90deg,
+            #ff5757 0%,
+            #ffb547 20%,
+            #ffe94a 40%,
+            #3cff8f 60%,
+            #5a8bff 80%,
+            #c258ff 100%)`,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        {t('hero.headline')} &nbsp;{t('hero.headline2')}
+      </Typography>
+
+      {/* BIO EM DUAS LINHAS */}
+      <Typography
+        variant="body1"
+        sx={{
+          maxWidth: 720,
+          mx: 'auto',
+          lineHeight: 1.8,
+          opacity: 0.9,
+          fontSize: { xs: '0.95rem', md: '1.05rem' },
+        }}
+      >
+        {t('hero.bio1')}
+      </Typography>
+      <Typography
+        variant="body1"
+        sx={{
+          maxWidth: 680,
+          mx: 'auto',
+          lineHeight: 1.8,
+          opacity: 0.9,
+          fontSize: { xs: '0.95rem', md: '1.05rem' },
+          mb: 6,
+        }}
+      >
+        {t('hero.bio2')}
+      </Typography>
+
+      {/* CALL-TO-ACTION */}
       <Button
         href="#contact"
-        variant="outlined"
         size="large"
         sx={{
-          mt: 4,
-          borderRadius: 5,
-          px: 4,
+          px: 5,
+          py: 1.5,
+          borderRadius: 999,
+          fontWeight: 600,
+          bgcolor: 'rgba(255,255,255,0.05)',
           color: '#fff',
-          borderColor: '#fff',
-          '&:hover': { borderColor: 'primary.main', color: 'primary.main' },
+          backdropFilter: 'blur(4px)',
+          transition: 'all .3s',
+          '&:hover': {
+            bgcolor: '#fff',
+            color: '#000',
+            boxShadow: 4,
+          },
         }}
       >
         {t('hero.button')}
